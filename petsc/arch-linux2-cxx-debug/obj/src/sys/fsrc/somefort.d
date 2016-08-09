@@ -8,7 +8,7 @@ somefort.o arch-linux2-cxx-debug/obj/src/sys/fsrc/somefort.o: \
  /home/mito/temp/petsc-3.7.3/include/petsc/finclude/petscerrordef.h \
  /home/mito/temp/petsc-3.7.3/include/petsc/finclude/petsclogdef.h \
  /home/mito/temp/petsc-3.7.3/include/petsc/finclude/petscdrawdef.h \
- /home/mito/temp/petsc-3.7.3/include/petsc/mpiuni/mpif.h
+ /home/mito/usrLocal/include/mpif.h
 
 /home/mito/temp/petsc-3.7.3/include/petsc/finclude/petscsys.h:
 
@@ -26,4 +26,4 @@ somefort.o arch-linux2-cxx-debug/obj/src/sys/fsrc/somefort.o: \
 
 /home/mito/temp/petsc-3.7.3/include/petsc/finclude/petscdrawdef.h:
 
-/home/mito/temp/petsc-3.7.3/include/petsc/mpiuni/mpif.h:
+/home/mito/usrLocal/include/mpif.h:

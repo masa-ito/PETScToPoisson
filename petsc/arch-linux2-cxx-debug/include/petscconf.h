@@ -5,24 +5,8 @@
 #define IS_COLORING_MAX 65535
 #endif
 
-#ifndef MPI_Type_create_struct
-#define MPI_Type_create_struct(count,lens,displs,types,newtype) MPI_Type_struct((count),(lens),(displs),(types),(newtype))
-#endif
-
-#ifndef MPIUNI_FORTRAN_BINDING
-#define MPIUNI_FORTRAN_BINDING 1
-#endif
-
 #ifndef STDC_HEADERS
 #define STDC_HEADERS 1
-#endif
-
-#ifndef MPI_Comm_create_errhandler
-#define MPI_Comm_create_errhandler(p_err_fun,p_errhandler) MPI_Errhandler_create((p_err_fun),(p_errhandler))
-#endif
-
-#ifndef MPI_Comm_set_errhandler
-#define MPI_Comm_set_errhandler(comm,p_errhandler) MPI_Errhandler_set((comm),(p_errhandler))
 #endif
 
 #ifndef MPIU_COLORING_VALUE
@@ -125,6 +109,10 @@
 #define PETSC_FUNCTION_NAME_C __func__
 #endif
 
+#ifndef PETSC_HAVE_MPICH
+#define PETSC_HAVE_MPICH 1
+#endif
+
 #ifndef PETSC_HAVE_VALGRIND
 #define PETSC_HAVE_VALGRIND 1
 #endif
@@ -159,6 +147,10 @@
 
 #ifndef PETSC_HAVE_BLASLAPACK
 #define PETSC_HAVE_BLASLAPACK 1
+#endif
+
+#ifndef PETSC_HAVE_HWLOC
+#define PETSC_HAVE_HWLOC 1
 #endif
 
 #ifndef PETSC_HAVE_GZIP
@@ -345,8 +337,16 @@
 #define PETSC_CXX_STATIC_INLINE static inline
 #endif
 
+#ifndef PETSC_HAVE_LIBHWLOC
+#define PETSC_HAVE_LIBHWLOC 1
+#endif
+
 #ifndef PETSC_HAVE_LIBZ
 #define PETSC_HAVE_LIBZ 1
+#endif
+
+#ifndef PETSC_HAVE_LIBMPIFORT
+#define PETSC_HAVE_LIBMPIFORT 1
 #endif
 
 #ifndef PETSC_HAVE_LIBDL
@@ -421,8 +421,16 @@
 #define PETSC_USE_REAL_DOUBLE 1
 #endif
 
+#ifndef PETSC_SIZEOF_MPI_COMM
+#define PETSC_SIZEOF_MPI_COMM 4
+#endif
+
 #ifndef PETSC_BITS_PER_BYTE
 #define PETSC_BITS_PER_BYTE 8
+#endif
+
+#ifndef PETSC_SIZEOF_MPI_FINT
+#define PETSC_SIZEOF_MPI_FINT 4
 #endif
 
 #ifndef PETSC_USE_VISIBILITY_C
@@ -493,24 +501,120 @@
 #define PETSC_CLANGUAGE_CXX 1
 #endif
 
-#ifndef PETSC_HAVE_MPIUNI
-#define PETSC_HAVE_MPIUNI 1
+#ifndef PETSC_HAVE_MPI_F90MODULE
+#define PETSC_HAVE_MPI_F90MODULE 1
 #endif
 
-#ifndef PETSC_HAVE_MPI_COMM_C2F
-#define PETSC_HAVE_MPI_COMM_C2F 1
+#ifndef PETSC_HAVE_MPI_IALLREDUCE
+#define PETSC_HAVE_MPI_IALLREDUCE 1
+#endif
+
+#ifndef PETSC_HAVE_MPI_REDUCE_SCATTER_BLOCK
+#define PETSC_HAVE_MPI_REDUCE_SCATTER_BLOCK 1
 #endif
 
 #ifndef PETSC_HAVE_MPI_IN_PLACE
 #define PETSC_HAVE_MPI_IN_PLACE 1
 #endif
 
+#ifndef PETSC_HAVE_MPI_COMM_C2F
+#define PETSC_HAVE_MPI_COMM_C2F 1
+#endif
+
+#ifndef PETSC_HAVE_MPI_COMBINER_CONTIGUOUS
+#define PETSC_HAVE_MPI_COMBINER_CONTIGUOUS 1
+#endif
+
+#ifndef PETSC_HAVE_MPI_INT64_T
+#define PETSC_HAVE_MPI_INT64_T 1
+#endif
+
+#ifndef PETSC_HAVE_MPI_TYPE_GET_EXTENT
+#define PETSC_HAVE_MPI_TYPE_GET_EXTENT 1
+#endif
+
+#ifndef PETSC_HAVE_MPI_WIN_CREATE
+#define PETSC_HAVE_MPI_WIN_CREATE 1
+#endif
+
+#ifndef PETSC_HAVE_MPI_TYPE_DUP
+#define PETSC_HAVE_MPI_TYPE_DUP 1
+#endif
+
+#ifndef PETSC_HAVE_MPI_INIT_THREAD
+#define PETSC_HAVE_MPI_INIT_THREAD 1
+#endif
+
+#ifndef PETSC_HAVE_MPI_COMBINER_NAMED
+#define PETSC_HAVE_MPI_COMBINER_NAMED 1
+#endif
+
+#ifndef PETSC_HAVE_MPI_LONG_DOUBLE
+#define PETSC_HAVE_MPI_LONG_DOUBLE 1
+#endif
+
 #ifndef PETSC_HAVE_MPI_COMM_F2C
 #define PETSC_HAVE_MPI_COMM_F2C 1
 #endif
 
+#ifndef PETSC_HAVE_MPI_TYPE_GET_ENVELOPE
+#define PETSC_HAVE_MPI_TYPE_GET_ENVELOPE 1
+#endif
+
+#ifndef PETSC_HAVE_MPICH_CH3_SOCK
+#define PETSC_HAVE_MPICH_CH3_SOCK 1
+#endif
+
+#ifndef PETSC_HAVE_MPI_REDUCE_SCATTER
+#define PETSC_HAVE_MPI_REDUCE_SCATTER 1
+#endif
+
+#ifndef PETSC_HAVE_MPI_COMBINER_DUP
+#define PETSC_HAVE_MPI_COMBINER_DUP 1
+#endif
+
+#ifndef PETSC_HAVE_MPICH_NUMVERSION
+#define PETSC_HAVE_MPICH_NUMVERSION 30103300
+#endif
+
+#ifndef PETSC_HAVE_MPIIO
+#define PETSC_HAVE_MPIIO 1
+#endif
+
+#ifndef PETSC_HAVE_MPI_COMM_SPAWN
+#define PETSC_HAVE_MPI_COMM_SPAWN 1
+#endif
+
+#ifndef PETSC_HAVE_MPICH_CH3_SOCK_FIXED_NBC_PROGRESS
+#define PETSC_HAVE_MPICH_CH3_SOCK_FIXED_NBC_PROGRESS 1
+#endif
+
 #ifndef PETSC_HAVE_MPI_FINT
 #define PETSC_HAVE_MPI_FINT 1
+#endif
+
+#ifndef PETSC_HAVE_MPI_IBARRIER
+#define PETSC_HAVE_MPI_IBARRIER 1
+#endif
+
+#ifndef PETSC_HAVE_MPI_ALLTOALLW
+#define PETSC_HAVE_MPI_ALLTOALLW 1
+#endif
+
+#ifndef PETSC_HAVE_MPI_REDUCE_LOCAL
+#define PETSC_HAVE_MPI_REDUCE_LOCAL 1
+#endif
+
+#ifndef PETSC_HAVE_MPI_REPLACE
+#define PETSC_HAVE_MPI_REPLACE 1
+#endif
+
+#ifndef PETSC_HAVE_MPI_EXSCAN
+#define PETSC_HAVE_MPI_EXSCAN 1
+#endif
+
+#ifndef PETSC_HAVE_MPI_FINALIZED
+#define PETSC_HAVE_MPI_FINALIZED 1
 #endif
 
 #ifndef PETSC_HAVE_DYNAMIC_LIBRARIES

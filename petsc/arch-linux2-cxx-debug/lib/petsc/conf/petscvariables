@@ -1,47 +1,54 @@
+MPICXX_SHOW = g++ -g -fPIC -I/home/mito/usrLocal/include -L/home/mito/usrLocal/lib -lmpicxx -Wl,-rpath -Wl,/home/mito/usrLocal/lib -Wl,--enable-new-dtags -lmpi
 C_DEPFLAGS = -MMD -MP
 FC_DEFINE_FLAG = -D
+MPICC_SHOW = gcc -fPIC -g3 -I/home/mito/usrLocal/include -L/home/mito/usrLocal/lib -Wl,-rpath -Wl,/home/mito/usrLocal/lib -Wl,--enable-new-dtags -lmpi
 AR_FLAGS = cr
 CXX_DEPFLAGS = -MMD -MP
 FC_DEPFLAGS = -MMD -MP
+MPIFC_SHOW = gfortran -fPIC -ffree-line-length-0 -g -I/home/mito/usrLocal/include -I/home/mito/usrLocal/include -L/home/mito/usrLocal/lib -lmpifort -Wl,-rpath -Wl,/home/mito/usrLocal/lib -Wl,--enable-new-dtags -lmpi
 FAST_AR_FLAGS = Scq
 FC_MODULE_OUTPUT_FLAG = -J
 PETSC_LANGUAGE = CXXONLY
-FC_LINKER_FLAGS =    -fPIC -Wall -ffree-line-length-0 -Wno-unused-dummy-argument -g 
+FC_LINKER_FLAGS =      -Wall -ffree-line-length-0 -Wno-unused-dummy-argument -g
 LIBNAME = ${INSTALL_LIB_DIR}/libpetsc.${AR_LIB_SUFFIX}
-SL_LINKER = g++
-CC_FLAGS =  -fPIC  -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -fvisibility=hidden -g3 
+SL_LINKER = /home/mito/usrLocal/bin/mpicxx
+CC_FLAGS =    -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -fvisibility=hidden -g3 
+HWLOC_INCLUDE = 
 PETSC_PRECISION = double
 PETSC_LIB_BASIC = -lpetsc
-FC_FLAGS =  -fPIC -Wall -ffree-line-length-0 -Wno-unused-dummy-argument -g  
+FC_FLAGS =    -Wall -ffree-line-length-0 -Wno-unused-dummy-argument -g 
 BLASLAPACK_LIB = -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -lflapack -lfblas
 PETSC_MAT_LIB = ${C_SH_LIB_PATH} ${PETSC_WITH_EXTERNAL_LIB}
-PCC = g++
+PCC = /home/mito/usrLocal/bin/mpicxx
 SL_LINKER_LIBS = ${PETSC_EXTERNAL_LIB_BASIC}
 VALGRIND_INCLUDE = 
 MPI_LIB = 
-PETSC_EXTERNAL_LIB_BASIC = -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -lflapack -lfblas -lX11 -lpthread -lm -Wl,-rpath,/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/lib/x86_64-linux-gnu -L/lib/x86_64-linux-gnu -lgfortran -lm -lgfortran -lm -lquadmath -lm -lstdc++ -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -Wl,-rpath,/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/lib/x86_64-linux-gnu -L/lib/x86_64-linux-gnu -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -ldl -lgcc_s -ldl 
+PETSC_EXTERNAL_LIB_BASIC = -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -lflapack -lfblas -lX11 -lhwloc -lpthread -lm -Wl,-rpath,/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/lib/x86_64-linux-gnu -L/lib/x86_64-linux-gnu -lmpifort -lgfortran -lm -lgfortran -lm -lquadmath -lm -lmpicxx -lstdc++ -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -Wl,-rpath,/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/lib/x86_64-linux-gnu -L/lib/x86_64-linux-gnu -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -ldl -Wl,-rpath,/home/mito/usrLocal/lib -lmpi -lgcc_s -ldl 
 SL_LINKER_FLAGS = ${PCC_LINKER_FLAGS}
 CC_SUFFIX = o
 PETSC_LIB = ${C_SH_LIB_PATH} ${PETSC_WITH_EXTERNAL_LIB}
 SHLIBS = libpetsc
-CONFIGURE_OPTIONS = --with-clanguage=c++ --with-cxx=g++ --with-fc=gfortran -download-fblaslapack --with-mpi=0 --prefix=/home/mito/usrLocal
+CONFIGURE_OPTIONS = --with-clanguage=c++ --with-cxx=g++ --with-fc=gfortran -download-fblaslapack --download-mpich=/home/mito/ダウンロード/mpich-3.1.3.tar.gz --prefix=/home/mito/usrLocal
 PETSC_CHARACTERISTIC_LIB = ${C_SH_LIB_PATH} ${PETSC_WITH_EXTERNAL_LIB}
+HWLOC_LIB = -lhwloc
 PTHREAD_LIB = -lpthread
 PETSC_SCALAR = real
-PETSC_FC_INCLUDES = -I/home/mito/temp/petsc-3.7.3/include -I/home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/include -I/home/mito/temp/petsc-3.7.3/include/petsc/mpiuni
+PETSC_FC_INCLUDES = -I/home/mito/temp/petsc-3.7.3/include -I/home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/include -I/home/mito/usrLocal/include
 CPP_FLAGS = 
 PETSC_TAO_LIB_BASIC = -lpetsc
 PETSC_KSP_LIB_BASIC = -lpetsc
 FPP_FLAGS = 
-FC_LINKER = gfortran
+FC_LINKER = /home/mito/usrLocal/bin/mpif90
+MPICH_INCLUDE = 
 PETSC_KSP_LIB = ${C_SH_LIB_PATH} ${PETSC_WITH_EXTERNAL_LIB}
-CXX_FLAGS =  -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -fvisibility=hidden -g   -fPIC  
-PCC_LINKER_FLAGS =    -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -fvisibility=hidden -g 
+CXX_FLAGS =   -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -fvisibility=hidden -g    
+PCC_LINKER_FLAGS =     -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -fvisibility=hidden -g
 PETSC_CONTRIB = ${C_SH_LIB_PATH} ${PETSC_WITH_EXTERNAL_LIB}
-PETSC_CC_INCLUDES = -I/home/mito/temp/petsc-3.7.3/include -I/home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/include -I/home/mito/temp/petsc-3.7.3/include/petsc/mpiuni
-PCC_LINKER = g++
+PETSC_CC_INCLUDES = -I/home/mito/temp/petsc-3.7.3/include -I/home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/include -I/home/mito/usrLocal/include
+MPICH_LIB = 
+PCC_LINKER = /home/mito/usrLocal/bin/mpicxx
 PETSC_SYS_LIB = ${C_SH_LIB_PATH} ${PETSC_WITH_EXTERNAL_LIB}
-PCC_FLAGS =  -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -fvisibility=hidden -g   -fPIC  
+PCC_FLAGS =   -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -fvisibility=hidden -g    
 VALGRIND_LIB = 
 PTHREAD_INCLUDE = 
 PETSC_TS_LIB = ${C_SH_LIB_PATH} ${PETSC_WITH_EXTERNAL_LIB}
@@ -57,9 +64,9 @@ DESTDIR = /home/mito/usrLocal
 FC_MODULE_FLAG = -I
 X_LIB = -lX11
 X_INCLUDE = 
-PETSC_WITH_EXTERNAL_LIB = -L/home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/lib  -lpetsc -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -lflapack -lfblas -lX11 -lpthread -lm -Wl,-rpath,/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/lib/x86_64-linux-gnu -L/lib/x86_64-linux-gnu -lgfortran -lm -lgfortran -lm -lquadmath -lm -lstdc++ -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -Wl,-rpath,/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/lib/x86_64-linux-gnu -L/lib/x86_64-linux-gnu -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -ldl -lgcc_s -ldl 
+PETSC_WITH_EXTERNAL_LIB = -L/home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/lib  -lpetsc -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -lflapack -lfblas -lX11 -lhwloc -lpthread -lm -Wl,-rpath,/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/lib/x86_64-linux-gnu -L/lib/x86_64-linux-gnu -lmpifort -lgfortran -lm -lgfortran -lm -lquadmath -lm -lmpicxx -lstdc++ -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -Wl,-rpath,/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/lib/x86_64-linux-gnu -L/lib/x86_64-linux-gnu -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -ldl -Wl,-rpath,/home/mito/usrLocal/lib -lmpi -lgcc_s -ldl 
 PETSC_TAO_LIB = ${C_SH_LIB_PATH} ${PETSC_WITH_EXTERNAL_LIB}
-MPI_INCLUDE = -I/home/mito/temp/petsc-3.7.3/include/petsc/mpiuni
+MPI_INCLUDE = -I/home/mito/usrLocal/include
 FC_SUFFIX = o
 PETSC_SNES_LIB = ${C_SH_LIB_PATH} ${PETSC_WITH_EXTERNAL_LIB}
 SHELL = /bin/sh
@@ -74,21 +81,20 @@ GZIP = /bin/gzip
 RM = /bin/rm -f
 CP = /bin/cp
 CC_LINKER_SLFLAG = -Wl,-rpath,
-CC = gcc
+CC = /home/mito/usrLocal/bin/mpicc
 RANLIB = /usr/bin/ranlib
-DYNAMICLINKER = g++
-CXX = g++
-FC = gfortran
-CXXCPP = g++ -E
+DYNAMICLINKER = /home/mito/usrLocal/bin/mpicxx
+CXX = /home/mito/usrLocal/bin/mpicxx
+FC = /home/mito/usrLocal/bin/mpif90
+CXXCPP = /home/mito/usrLocal/bin/mpicxx -E
 FC_LINKER_SLFLAG = -Wl,-rpath,
-CPP = gcc -E
+CPP = /home/mito/usrLocal/bin/mpicc -E
 AR_LIB_SUFFIX = a
-LD_SHARED = g++
+LD_SHARED = /home/mito/usrLocal/bin/mpicxx
 AR = /usr/bin/ar
 DIR = /home/mito/temp/petsc-3.7.3
 PETSC_SCALAR_SIZE = 64
-MPIEXEC = ${PETSC_DIR}/bin/petsc-mpiexec.uni
-MPI_IS_MPIUNI = 1
+MPIEXEC = /home/mito/usrLocal/bin/mpiexec
 GIT = git
 SL_LINKER_FUNCTION = -shared -Wl,-soname,$(call SONAME_FUNCTION,$(notdir $(1)),$(2))
 SONAME_FUNCTION = $(1).so.$(2)
@@ -103,4 +109,4 @@ MAKE = /usr/bin/make
 MAKE_PAR_OUT_FLG = 
 OMAKE = /usr/bin/make  --no-print-directory
 PETSC_INDEX_SIZE = 32
-TEST_RUNS = C_X_MPIUni Fortran_MPIUni  
+TEST_RUNS = C C_Info C_NotSingle C_X Fortran Fortran_NotSingle F90_NotSingle Fortran_NoComplex_NotSingle C_NoComplex_NotSingle  Cxx F90 F90_NoComplex F2003 Fortran_NoComplex C_NoComplex DOUBLEINT32 Fortran_DOUBLEINT32

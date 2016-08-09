@@ -9,7 +9,7 @@ mailing list archives and consider subscribing.
   http://www.mcs.anl.gov/petsc/miscellaneous/mailing-lists.html
  
 ==========================================
-Starting on macgyver at 2016年 8月 2日 火曜日 21:46:38 JST
+Starting on macgyver at 2016年 8月 10日 水曜日 05:19:46 JST
 Machine characteristics: Linux macgyver 3.13.0-88-generic #135-Ubuntu SMP Wed Jun 8 21:10:42 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
 -----------------------------------------
 Using PETSc directory: /home/mito/temp/petsc-3.7.3
@@ -29,15 +29,11 @@ PETSC_VERSION_LE(MAJOR,MINOR,SUBMINOR) \
 PETSC_VERSION_GT(MAJOR,MINOR,SUBMINOR) \
 PETSC_VERSION_GE(MAJOR,MINOR,SUBMINOR) \
 -----------------------------------------
-Using configure Options: --with-clanguage=c++ --with-cxx=g++ --with-fc=gfortran -download-fblaslapack --with-mpi=0 --prefix=/home/mito/usrLocal
+Using configure Options: --with-clanguage=c++ --with-cxx=g++ --with-fc=gfortran -download-fblaslapack --download-mpich=/home/mito/ダウンロード/mpich-3.1.3.tar.gz --prefix=/home/mito/usrLocal
 Using configuration flags:
 #define INCLUDED_PETSCCONF_H
 #define IS_COLORING_MAX 65535
-#define MPI_Type_create_struct(count,lens,displs,types,newtype) MPI_Type_struct((count),(lens),(displs),(types),(newtype))
-#define MPIUNI_FORTRAN_BINDING 1
 #define STDC_HEADERS 1
-#define MPI_Comm_create_errhandler(p_err_fun,p_errhandler) MPI_Errhandler_create((p_err_fun),(p_errhandler))
-#define MPI_Comm_set_errhandler(comm,p_errhandler) MPI_Errhandler_set((comm),(p_errhandler))
 #define MPIU_COLORING_VALUE MPI_UNSIGNED_SHORT
 #define PETSC_UINTPTR_T uintptr_t
 #define PETSC_HAVE_PTHREAD 1
@@ -63,6 +59,7 @@ Using configuration flags:
 #define PETSC_UNUSED __attribute((unused))
 #define PETSC_ATTRIBUTEALIGNED(size) __attribute((aligned (size)))
 #define PETSC_FUNCTION_NAME_C __func__
+#define PETSC_HAVE_MPICH 1
 #define PETSC_HAVE_VALGRIND 1
 #define PETSC_USE_SINGLE_LIBRARY 1
 #define PETSC_HAVE_BUILTIN_EXPECT 1
@@ -72,6 +69,7 @@ Using configuration flags:
 #define PETSC_PREFETCH_HINT_NTA _MM_HINT_NTA
 #define PETSC_Prefetch(a,b,c) _mm_prefetch((const char*)(a),(c))
 #define PETSC_HAVE_BLASLAPACK 1
+#define PETSC_HAVE_HWLOC 1
 #define PETSC_HAVE_GZIP 1
 #define PETSC_HAVE_STRING_H 1
 #define PETSC_HAVE_SYS_TYPES_H 1
@@ -118,7 +116,9 @@ Using configuration flags:
 #define PETSC_C_RESTRICT  __restrict__
 #define PETSC_CXX_RESTRICT  __restrict__
 #define PETSC_CXX_STATIC_INLINE static inline
+#define PETSC_HAVE_LIBHWLOC 1
 #define PETSC_HAVE_LIBZ 1
+#define PETSC_HAVE_LIBMPIFORT 1
 #define PETSC_HAVE_LIBDL 1
 #define PETSC_HAVE_LIBM 1
 #define PETSC_HAVE_LIBPTHREAD 1
@@ -137,7 +137,9 @@ Using configuration flags:
 #define PETSC_HAVE_ISNAN 1
 #define PETSC_HAVE_ISNORMAL 1
 #define PETSC_USE_REAL_DOUBLE 1
+#define PETSC_SIZEOF_MPI_COMM 4
 #define PETSC_BITS_PER_BYTE 8
+#define PETSC_SIZEOF_MPI_FINT 4
 #define PETSC_USE_VISIBILITY_C 1
 #define PETSC_SIZEOF_VOID_P 8
 #define PETSC_RETSIGTYPE void
@@ -155,11 +157,35 @@ Using configuration flags:
 #define PETSC_SIZEOF_LONG_LONG 8
 #define PETSC_SIZEOF_SHORT 2
 #define PETSC_CLANGUAGE_CXX 1
-#define PETSC_HAVE_MPIUNI 1
-#define PETSC_HAVE_MPI_COMM_C2F 1
+#define PETSC_HAVE_MPI_F90MODULE 1
+#define PETSC_HAVE_MPI_IALLREDUCE 1
+#define PETSC_HAVE_MPI_REDUCE_SCATTER_BLOCK 1
 #define PETSC_HAVE_MPI_IN_PLACE 1
+#define PETSC_HAVE_MPI_COMM_C2F 1
+#define PETSC_HAVE_MPI_COMBINER_CONTIGUOUS 1
+#define PETSC_HAVE_MPI_INT64_T 1
+#define PETSC_HAVE_MPI_TYPE_GET_EXTENT 1
+#define PETSC_HAVE_MPI_WIN_CREATE 1
+#define PETSC_HAVE_MPI_TYPE_DUP 1
+#define PETSC_HAVE_MPI_INIT_THREAD 1
+#define PETSC_HAVE_MPI_COMBINER_NAMED 1
+#define PETSC_HAVE_MPI_LONG_DOUBLE 1
 #define PETSC_HAVE_MPI_COMM_F2C 1
+#define PETSC_HAVE_MPI_TYPE_GET_ENVELOPE 1
+#define PETSC_HAVE_MPICH_CH3_SOCK 1
+#define PETSC_HAVE_MPI_REDUCE_SCATTER 1
+#define PETSC_HAVE_MPI_COMBINER_DUP 1
+#define PETSC_HAVE_MPICH_NUMVERSION 30103300
+#define PETSC_HAVE_MPIIO 1
+#define PETSC_HAVE_MPI_COMM_SPAWN 1
+#define PETSC_HAVE_MPICH_CH3_SOCK_FIXED_NBC_PROGRESS 1
 #define PETSC_HAVE_MPI_FINT 1
+#define PETSC_HAVE_MPI_IBARRIER 1
+#define PETSC_HAVE_MPI_ALLTOALLW 1
+#define PETSC_HAVE_MPI_REDUCE_LOCAL 1
+#define PETSC_HAVE_MPI_REPLACE 1
+#define PETSC_HAVE_MPI_EXSCAN 1
+#define PETSC_HAVE_MPI_FINALIZED 1
 #define PETSC_HAVE_DYNAMIC_LIBRARIES 1
 #define PETSC_HAVE_SHARED_LIBRARIES 1
 #define PETSC_USE_SHARED_LIBRARIES 1
@@ -237,17 +263,19 @@ Using configuration flags:
 #define PETSC_HAVE_PTHREAD_BARRIER_T 1
 #define PETSC_HAVE_SYS_SYSCTL_H 1
 -----------------------------------------
-Using C/C++ compile: g++ -c -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -fvisibility=hidden -g   -fPIC    -I/home/mito/temp/petsc-3.7.3/include -I/home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/include -I/home/mito/temp/petsc-3.7.3/include/petsc/mpiuni     
-Using Fortran compile: gfortran -c -fPIC -Wall -ffree-line-length-0 -Wno-unused-dummy-argument -g    -I/home/mito/temp/petsc-3.7.3/include -I/home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/include -I/home/mito/temp/petsc-3.7.3/include/petsc/mpiuni     
+Using C/C++ compile: /home/mito/usrLocal/bin/mpicxx -c -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -fvisibility=hidden -g      -I/home/mito/temp/petsc-3.7.3/include -I/home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/include -I/home/mito/usrLocal/include     
+mpicxx -show: g++ -g -fPIC -I/home/mito/usrLocal/include -L/home/mito/usrLocal/lib -lmpicxx -Wl,-rpath -Wl,/home/mito/usrLocal/lib -Wl,--enable-new-dtags -lmpi
+Using Fortran compile: /home/mito/usrLocal/bin/mpif90 -c -Wall -ffree-line-length-0 -Wno-unused-dummy-argument -g   -I/home/mito/temp/petsc-3.7.3/include -I/home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/include -I/home/mito/usrLocal/include     
+mpif90 -show: gfortran -fPIC -ffree-line-length-0 -g -I/home/mito/usrLocal/include -I/home/mito/usrLocal/include -L/home/mito/usrLocal/lib -lmpifort -Wl,-rpath -Wl,/home/mito/usrLocal/lib -Wl,--enable-new-dtags -lmpi
 -----------------------------------------
-Using C/C++ linker: g++
-Using C/C++ flags: -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -fvisibility=hidden -g 
-Using Fortran linker: gfortran
-Using Fortran flags: -fPIC -Wall -ffree-line-length-0 -Wno-unused-dummy-argument -g 
+Using C/C++ linker: /home/mito/usrLocal/bin/mpicxx
+Using C/C++ flags: -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -fvisibility=hidden -g
+Using Fortran linker: /home/mito/usrLocal/bin/mpif90
+Using Fortran flags: -Wall -ffree-line-length-0 -Wno-unused-dummy-argument -g
 -----------------------------------------
-Using libraries: -Wl,-rpath,/home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/lib -L/home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/lib  -lpetsc -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -lflapack -lfblas -lX11 -lpthread -lm -Wl,-rpath,/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/lib/x86_64-linux-gnu -L/lib/x86_64-linux-gnu -lgfortran -lm -lgfortran -lm -lquadmath -lm -lstdc++ -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -Wl,-rpath,/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/lib/x86_64-linux-gnu -L/lib/x86_64-linux-gnu -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -ldl -lgcc_s -ldl 
+Using libraries: -Wl,-rpath,/home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/lib -L/home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/lib  -lpetsc -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -lflapack -lfblas -lX11 -lhwloc -lpthread -lm -Wl,-rpath,/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/lib/x86_64-linux-gnu -L/lib/x86_64-linux-gnu -lmpifort -lgfortran -lm -lgfortran -lm -lquadmath -lm -lmpicxx -lstdc++ -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -Wl,-rpath,/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/lib/x86_64-linux-gnu -L/lib/x86_64-linux-gnu -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -ldl -Wl,-rpath,/home/mito/usrLocal/lib -lmpi -lgcc_s -ldl 
 ------------------------------------------
-Using mpiexec: /home/mito/temp/petsc-3.7.3/bin/petsc-mpiexec.uni
+Using mpiexec: /home/mito/usrLocal/bin/mpiexec
 ==========================================
 Building PETSc using GNU Make with 4 build threads
 ==========================================
@@ -261,11 +289,9 @@ Use "/usr/bin/make V=1" to see the verbose compile lines.
          CXX arch-linux2-cxx-debug/obj/src/sys/info/ftn-custom/zverboseinfof.o
          CXX arch-linux2-cxx-debug/obj/src/sys/ftn-custom/zsys.o
          CXX arch-linux2-cxx-debug/obj/src/sys/ftn-custom/zutils.o
-         CXX arch-linux2-cxx-debug/obj/src/sys/mpiuni/mpi.o
-         CXX arch-linux2-cxx-debug/obj/src/sys/mpiuni/mpitime.o
          CXX arch-linux2-cxx-debug/obj/src/sys/time/cputime.o
-         CXX arch-linux2-cxx-debug/obj/src/sys/time/fdate.o
          CXX arch-linux2-cxx-debug/obj/src/sys/time/ftn-auto/cputimef.o
+         CXX arch-linux2-cxx-debug/obj/src/sys/time/fdate.o
          CXX arch-linux2-cxx-debug/obj/src/sys/time/ftn-custom/zptimef.o
          CXX arch-linux2-cxx-debug/obj/src/sys/objects/version.o
          CXX arch-linux2-cxx-debug/obj/src/sys/objects/gcomm.o
@@ -433,8 +459,8 @@ Use "/usr/bin/make V=1" to see the verbose compile lines.
          CXX arch-linux2-cxx-debug/obj/src/sys/classes/draw/interface/ftn-custom/zdtrif.o
          CXX arch-linux2-cxx-debug/obj/src/sys/classes/draw/impls/tikz/tikz.o
          CXX arch-linux2-cxx-debug/obj/src/sys/classes/draw/impls/image/drawimage.o
-         CXX arch-linux2-cxx-debug/obj/src/sys/classes/draw/impls/x/xinit.o
          CXX arch-linux2-cxx-debug/obj/src/sys/classes/draw/impls/x/ximage.o
+         CXX arch-linux2-cxx-debug/obj/src/sys/classes/draw/impls/x/xinit.o
          CXX arch-linux2-cxx-debug/obj/src/sys/classes/draw/impls/x/xcolor.o
          CXX arch-linux2-cxx-debug/obj/src/sys/classes/draw/impls/x/xops.o
          CXX arch-linux2-cxx-debug/obj/src/sys/classes/draw/impls/x/xioerr.o
@@ -508,8 +534,6 @@ Use "/usr/bin/make V=1" to see the verbose compile lines.
          CXX arch-linux2-cxx-debug/obj/src/sys/logging/utils/stack.o
          CXX arch-linux2-cxx-debug/obj/src/sys/logging/ftn-custom/zplogf.o
          CXX arch-linux2-cxx-debug/obj/src/sys/f90-src/f90_cwrap.o
-          FC arch-linux2-cxx-debug/obj/src/sys/mpiuni/fsrc/somempifort.o
-          FC arch-linux2-cxx-debug/obj/src/sys/mpiuni/f90-mod/mpiunimod.o
           FC arch-linux2-cxx-debug/obj/src/sys/objects/f2003-src/fsrc/optionenum.o
           FC arch-linux2-cxx-debug/obj/src/sys/classes/bag/f2003-src/fsrc/bagenum.o
           FC arch-linux2-cxx-debug/obj/src/sys/fsrc/somefort.o
@@ -556,6 +580,7 @@ Use "/usr/bin/make V=1" to see the verbose compile lines.
          CXX arch-linux2-cxx-debug/obj/src/vec/is/sf/interface/sftype.o
          CXX arch-linux2-cxx-debug/obj/src/vec/is/sf/interface/ftn-auto/sff.o
          CXX arch-linux2-cxx-debug/obj/src/vec/is/sf/interface/ftn-custom/zsf.o
+         CXX arch-linux2-cxx-debug/obj/src/vec/is/sf/impls/window/sfwindow.o
          CXX arch-linux2-cxx-debug/obj/src/vec/is/sf/impls/basic/sfbasic.o
          CXX arch-linux2-cxx-debug/obj/src/vec/is/ao/interface/ao.o
          CXX arch-linux2-cxx-debug/obj/src/vec/is/ao/interface/dlregisdm.o
@@ -760,8 +785,8 @@ Use "/usr/bin/make V=1" to see the verbose compile lines.
          CXX arch-linux2-cxx-debug/obj/src/mat/impls/sbaij/seq/aijsbaij.o
          CXX arch-linux2-cxx-debug/obj/src/mat/impls/sbaij/seq/ftn-auto/sbaijf.o
          CXX arch-linux2-cxx-debug/obj/src/mat/impls/sbaij/seq/ftn-custom/zsbaijf.o
-         CXX arch-linux2-cxx-debug/obj/src/mat/impls/sbaij/seq/sbstream/sbstream.o
          CXX arch-linux2-cxx-debug/obj/src/mat/impls/sbaij/seq/sbstream/sbstrmfact.o
+         CXX arch-linux2-cxx-debug/obj/src/mat/impls/sbaij/seq/sbstream/sbstream.o
          CXX arch-linux2-cxx-debug/obj/src/mat/impls/sbaij/mpi/mpisbaij.o
          CXX arch-linux2-cxx-debug/obj/src/mat/impls/sbaij/mpi/mmsbaij.o
          CXX arch-linux2-cxx-debug/obj/src/mat/impls/sbaij/mpi/sbaijov.o
@@ -1188,8 +1213,8 @@ Use "/usr/bin/make V=1" to see the verbose compile lines.
          CXX arch-linux2-cxx-debug/obj/src/ksp/ksp/impls/gmres/borthog2.o
          CXX arch-linux2-cxx-debug/obj/src/ksp/ksp/impls/gmres/gmres2.o
          CXX arch-linux2-cxx-debug/obj/src/ksp/ksp/impls/gmres/gmreig.o
-         CXX arch-linux2-cxx-debug/obj/src/ksp/ksp/impls/gmres/dgmres/dgmres.o
          CXX arch-linux2-cxx-debug/obj/src/ksp/ksp/impls/gmres/gmpre.o
+         CXX arch-linux2-cxx-debug/obj/src/ksp/ksp/impls/gmres/dgmres/dgmres.o
          CXX arch-linux2-cxx-debug/obj/src/ksp/ksp/impls/gmres/pgmres/pgmres.o
          CXX arch-linux2-cxx-debug/obj/src/ksp/ksp/impls/gmres/pipefgmres/pipefgmres.o
          CXX arch-linux2-cxx-debug/obj/src/ksp/ksp/impls/gmres/pipefgmres/ftn-auto/pipefgmresf.o
@@ -1248,8 +1273,8 @@ Use "/usr/bin/make V=1" to see the verbose compile lines.
          CXX arch-linux2-cxx-debug/obj/src/snes/impls/fas/fasgalerkin.o
          CXX arch-linux2-cxx-debug/obj/src/snes/impls/fas/fasfunc.o
          CXX arch-linux2-cxx-debug/obj/src/snes/impls/fas/ftn-auto/fasf.o
-         CXX arch-linux2-cxx-debug/obj/src/snes/impls/fas/ftn-auto/fasgalerkinf.o
          CXX arch-linux2-cxx-debug/obj/src/snes/impls/fas/ftn-auto/fasfuncf.o
+         CXX arch-linux2-cxx-debug/obj/src/snes/impls/fas/ftn-auto/fasgalerkinf.o
          CXX arch-linux2-cxx-debug/obj/src/snes/impls/test/snestest.o
          CXX arch-linux2-cxx-debug/obj/src/snes/impls/richardson/snesrichardson.o
          CXX arch-linux2-cxx-debug/obj/src/snes/impls/qn/qn.o
@@ -1404,4 +1429,4 @@ make[1]: ディレクトリ `/home/mito/temp/petsc-3.7.3' から出ます
 Now to install the libraries do:
 make PETSC_DIR=/home/mito/temp/petsc-3.7.3 PETSC_ARCH=arch-linux2-cxx-debug install
 =========================================
-Finishing at: 2016年  8月  2日 火曜日 21:49:24 JST
+Finishing at: 2016年  8月 10日 水曜日 05:23:02 JST

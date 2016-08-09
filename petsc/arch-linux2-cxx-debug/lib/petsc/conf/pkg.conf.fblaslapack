@@ -9,9 +9,9 @@ ALL: blas_lib lapack_lib
 ########################################################################################
 # Specify options to compile and create libraries
 ########################################################################################
-FC = gfortran
-FOPTFLAGS  =  -fPIC -Wall -ffree-line-length-0 -Wno-unused-dummy-argument -g  
-FNOOPT = -O0 -fPIC  
+FC = /home/mito/usrLocal/bin/mpif90
+FOPTFLAGS  =    -Wall -ffree-line-length-0 -Wno-unused-dummy-argument -g 
+FNOOPT = -O0   
 OMAKE      = make
 RM = /bin/rm -f
 AR      = /usr/bin/ar

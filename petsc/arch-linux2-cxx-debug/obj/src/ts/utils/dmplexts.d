@@ -8,7 +8,6 @@ arch-linux2-cxx-debug/obj/src/ts/utils/dmplexts.o: \
  /home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/include/petscconf.h \
  /home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/include/petscfix.h \
  /home/mito/temp/petsc-3.7.3/include/petscversion.h \
- /home/mito/temp/petsc-3.7.3/include/petsc/mpiuni/mpi.h \
  /home/mito/temp/petsc-3.7.3/include/petscmath.h \
  /home/mito/temp/petsc-3.7.3/include/petscerror.h \
  /home/mito/temp/petsc-3.7.3/include/petscviewertypes.h \
@@ -59,8 +58,6 @@ arch-linux2-cxx-debug/obj/src/ts/utils/dmplexts.o: \
 /home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/include/petscfix.h:
 
 /home/mito/temp/petsc-3.7.3/include/petscversion.h:
-
-/home/mito/temp/petsc-3.7.3/include/petsc/mpiuni/mpi.h:
 
 /home/mito/temp/petsc-3.7.3/include/petscmath.h:
 

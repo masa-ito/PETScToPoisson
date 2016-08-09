@@ -2,13 +2,13 @@ prefix=/home/mito/usrLocal
 exec_prefix=${prefix}
 includedir=${prefix}/include
 libdir=/home/mito/usrLocal/lib
-ccompiler=gcc
-fcompiler=gfortran
+ccompiler=/home/mito/usrLocal/bin/mpicc
+fcompiler=/home/mito/usrLocal/bin/mpif90
 blaslapacklibs=-Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -lflapack -lfblas
 
 Name: PETSc
 Description: Library to solve ODEs and algebraic equations
 Version: 3.7.3
-Cflags: -I/home/mito/temp/petsc-3.7.3/include -I/home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/include -I/home/mito/temp/petsc-3.7.3/include/petsc/mpiuni
+Cflags: -I/home/mito/temp/petsc-3.7.3/include -I/home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/include -I/home/mito/usrLocal/include
 Libs: -L/home/mito/usrLocal/lib  -lpetsc
-Libs.private: -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -lflapack -lfblas -lX11 -lpthread -lm -Wl,-rpath,/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/lib/x86_64-linux-gnu -L/lib/x86_64-linux-gnu -lgfortran -lm -lgfortran -lm -lquadmath -lm -lstdc++ -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -Wl,-rpath,/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/lib/x86_64-linux-gnu -L/lib/x86_64-linux-gnu -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -ldl -lgcc_s -ldl 
+Libs.private: -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -lflapack -lfblas -lX11 -lhwloc -lpthread -lm -Wl,-rpath,/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/lib/x86_64-linux-gnu -L/lib/x86_64-linux-gnu -lmpifort -lgfortran -lm -lgfortran -lm -lquadmath -lm -lmpicxx -lstdc++ -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -Wl,-rpath,/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/lib/x86_64-linux-gnu -L/lib/x86_64-linux-gnu -Wl,-rpath,/usr/lib/x86_64-linux-gnu -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/home/mito/usrLocal/lib -L/home/mito/usrLocal/lib -ldl -Wl,-rpath,/home/mito/usrLocal/lib -lmpi -lgcc_s -ldl 

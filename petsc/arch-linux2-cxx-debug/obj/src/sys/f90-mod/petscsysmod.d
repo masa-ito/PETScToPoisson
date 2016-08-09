@@ -17,7 +17,7 @@ petscsysmod.o arch-linux2-cxx-debug/obj/src/sys/f90-mod/petscsysmod.o \
  /home/mito/temp/petsc-3.7.3/include/petsc/finclude/petscviewer.h90 \
  /home/mito/temp/petsc-3.7.3/include/petsc/finclude/ftn-custom/petscviewer.h90 \
  /home/mito/temp/petsc-3.7.3/include/petsc/finclude/ftn-custom/petscviewerhide.h90 \
- /home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/include/mpi.mod \
+ /home/mito/usrLocal/include/mpi.mod \
  /home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/include/petscsysdef.mod
 
 /home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/include/petscconf.h:
@@ -50,6 +50,6 @@ petscsysmod.o arch-linux2-cxx-debug/obj/src/sys/f90-mod/petscsysmod.o \
 
 /home/mito/temp/petsc-3.7.3/include/petsc/finclude/ftn-custom/petscviewerhide.h90:
 
-/home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/include/mpi.mod:
+/home/mito/usrLocal/include/mpi.mod:
 
 /home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/include/petscsysdef.mod:
