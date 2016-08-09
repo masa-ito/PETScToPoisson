@@ -1,0 +1,3 @@
+PETSC_ARCH=arch-linux2-cxx-debug
+PETSC_DIR=/home/mito/temp/petsc-3.7.3
+include /home/mito/temp/petsc-3.7.3/arch-linux2-cxx-debug/lib/petsc/conf/petscvariables
